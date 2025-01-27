@@ -15,9 +15,10 @@ from dotenv import load_dotenv
 import math
 
 load_dotenv()
-MODEL="gpt-4o-mini"
-client = OpenAI(api_key=os.getenv("OPEN_AI_API_KEY"))
-
+# MODEL="gpt-4o-mini"
+# client = OpenAI(api_key=os.getenv("OPEN_AI_API_KEY") )
+MODEL="deepseek-chat"
+client = OpenAI(api_key=os.getenv("DEEPSEEK_API_KEY"),base_url="https://api.deepseek.com" )
 def to_markdown(text):
   text = text.replace('•', '  *')
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
